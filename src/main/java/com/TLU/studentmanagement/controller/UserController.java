@@ -162,18 +162,10 @@ public class UserController {
       jsonObj.put("email", user.getEmail());
       jsonObj.put("majorId", user.getMajorId());
 
-//            System.out.println(jsonObj);
-//            System.out.println("MajorId: " + user.getMajorId());
-//            System.out.println("GVCN: " + user.getGvcn());
-
       String response = HttpUtil.sendPost(BASE_URL + "create-user", jsonObj.toString());
       JSONObject responseJson = new JSONObject(response);
 
       return responseJson;
-
-//            System.out.println("API response: " + responseJson);
-
-//            JOptionPane.showMessageDialog(null, responseJson.getString("message"));
     } catch (JSONException e) {
       e.printStackTrace();
       return null;
@@ -185,17 +177,8 @@ public class UserController {
       JSONObject jsonObj = new JSONObject();
       jsonObj.put("gvcn", user.getGvcn());
       jsonObj.put("majorId", user.getMajorId());
-
-//            System.out.println("gvcnId: " + user.getGvcn());
-//            System.out.println("majorId: " + user.getMajorId());
-
       String response = HttpUtil.sendPut(BASE_URL + "updateByAdmin/" + userId, jsonObj.toString());
       JSONObject responseJson = new JSONObject(response);
-
-//            System.out.println("API response: " + response);
-//            System.out.println("UserId: " + userId);
-
-//            JOptionPane.showMessageDialog(null, responseJson.getString("message"));
     } catch (JSONException e) {
       e.printStackTrace();
       JOptionPane.showMessageDialog(null, "Lỗi khi cập nhật người dùng: " + e.getMessage());
@@ -209,8 +192,6 @@ public class UserController {
     try {
       String response = HttpUtil.sendDelete(BASE_URL + "delete/" + userId);
       JSONObject responseJson = new JSONObject(response);
-
-//            JOptionPane.showMessageDialog(null, responseJson.getString("message"));
     } catch (JSONException e) {
       e.printStackTrace();
       JOptionPane.showMessageDialog(null, "Lỗi khi xóa người dùng: " + e.getMessage());

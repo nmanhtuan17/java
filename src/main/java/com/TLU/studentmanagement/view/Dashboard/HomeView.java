@@ -153,7 +153,6 @@ public class HomeView extends JPanel {
 
       navItemPanel.add(iconLabel);
       navItemPanel.add(navLabel);
-
       // Thêm lắng nghe sự kiện chuột để thay đổi màu nền khi click
       navItemPanel.addMouseListener(new java.awt.event.MouseAdapter() {
         @Override

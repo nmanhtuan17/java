@@ -32,7 +32,7 @@ public class Login extends JPanel {
     cmdLogin.setPreferredSize(new Dimension(100, 40));
 
 
-    JPanel panel = new JPanel(new MigLayout("wrap,fillx,insets 35 45 30 45", "fill,300:350"));
+    JPanel panel = new JPanel(new MigLayout("wrap, fillx, insets 35 45 30 45", "fill,300:350"));
     panel.putClientProperty(FlatClientProperties.STYLE, "" +
         "arc:20;" +
         "[light]background:darken(@background,3%);" +
@@ -51,13 +51,13 @@ public class Login extends JPanel {
     txtUsername.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Enter your username or email");
     txtPassword.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Enter your password");
 
-    JLabel lbTitle = new JLabel("Welcome back!");
+    JLabel lbTitle = new JLabel("Welcome");
     JLabel description = new JLabel("Please sign in to access your account");
     lbTitle.putClientProperty(FlatClientProperties.STYLE, "" +
-        "font:bold +20");
+        "font:bold + 20");
     description.putClientProperty(FlatClientProperties.STYLE, "" +
-        "[light]foreground:lighten(@foreground,30%);" +
-        "[dark]foreground:darken(@foreground,30%)");
+        "[light]foreground:lighten(@foreground, 30%);" +
+        "[dark]foreground:darken(@foreground, 30%)");
 
 
     JLabel lblUsername = new JLabel("Username");
