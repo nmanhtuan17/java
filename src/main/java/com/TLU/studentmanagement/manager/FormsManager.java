@@ -8,32 +8,32 @@ import java.awt.*;
 
 public class FormsManager {
 
-    private Application application;
-    private static FormsManager instance;
+  private Application application;
+  private static FormsManager instance;
 
-    public static FormsManager getInstance() {
-        if (instance == null) {
-            instance = new FormsManager();
-        }
-        return instance;
+  public static FormsManager getInstance() {
+    if (instance == null) {
+      instance = new FormsManager();
     }
+    return instance;
+  }
 
-    private FormsManager() {
+  private FormsManager() {
 
-    }
+  }
 
-    public void initApplication(Application application) {
-        this.application = application;
-    }
+  public void initApplication(Application application) {
+    this.application = application;
+  }
 
-    public void showForm(JComponent form) {
-        EventQueue.invokeLater(() -> {
-            FlatAnimatedLafChange.showSnapshot();
-            application.setContentPane(form);
-            application.revalidate();
-            application.repaint();
-            FlatAnimatedLafChange.hideSnapshotWithAnimation();
-        });
-    }
+  public void showForm(JComponent form) {
+    EventQueue.invokeLater(() -> {
+      FlatAnimatedLafChange.showSnapshot();
+      application.setContentPane(form);
+      application.revalidate();
+      application.repaint();
+      FlatAnimatedLafChange.hideSnapshotWithAnimation();
+    });
+  }
 
 }

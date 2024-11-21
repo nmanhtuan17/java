@@ -13,33 +13,32 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Application extends JFrame {
+  public Application() {
+    init();
+  }
 
-    public Application() {
-        init();
-    }
+  private void init() {
+    setTitle("Student Management");
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    setSize(new Dimension(1500, 900));
+    setLocationRelativeTo(null);
 
-    private void init() {
-        setTitle("Student Management");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(new Dimension(1500, 900));
-        setLocationRelativeTo(null);
+    // Tạo view đăng nhập
+    Login loginView = new Login();
+    setContentPane(loginView);
 
-        // Tạo view đăng nhập
-        Login loginView = new Login();
-        setContentPane(loginView);
+    // Khởi tạo LoginController với view đăng nhập
+    new LoginController(loginView);
 
-        // Khởi tạo LoginController với view đăng nhập
-        new LoginController(loginView);
+    Notifications.getInstance().setJFrame(this);
+    FormsManager.getInstance().initApplication(this);
+  }
 
-        Notifications.getInstance().setJFrame(this);
-        FormsManager.getInstance().initApplication(this);
-    }
-
-    public static void main(String[] args) {
-        FlatRobotoFont.install();
-        FlatLaf.registerCustomDefaultsSource("resources.t3g.themes");
-        UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY, Font.PLAIN, 13));
-        FlatMacLightLaf.setup();
-        EventQueue.invokeLater(() -> new Application().setVisible(true));
-    }
+  public static void main(String[] args) {
+    FlatRobotoFont.install();
+    FlatLaf.registerCustomDefaultsSource("resources.t3g.themes");
+    UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY, Font.PLAIN, 13));
+    FlatMacLightLaf.setup();
+    EventQueue.invokeLater(() -> new Application().setVisible(true));
+  }
 }
