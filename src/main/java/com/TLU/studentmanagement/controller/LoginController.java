@@ -82,7 +82,7 @@ public class LoginController {
         }
       } catch (Exception ex) {
         ex.printStackTrace();
-        JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
+        JOptionPane.showMessageDialog(null, "Đăng nhập thất bại!");
       }
     }
 

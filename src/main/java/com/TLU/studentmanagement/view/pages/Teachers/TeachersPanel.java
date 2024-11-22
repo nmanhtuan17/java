@@ -175,6 +175,7 @@ public class TeachersPanel extends JPanel {
 
   private void openAddTeacherForm() {
     // Implement this method to open the form for adding a new teacher
+    AddTeacherForm.showTeacherForm(TeachersPanel.this, TeachersPanel.this);
   }
 
   private void viewTeacher(int row) {

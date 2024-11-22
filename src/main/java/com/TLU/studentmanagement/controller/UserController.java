@@ -177,6 +177,11 @@ public class UserController {
       JSONObject jsonObj = new JSONObject();
       jsonObj.put("gvcn", user.getGvcn());
       jsonObj.put("majorId", user.getMajorId());
+      jsonObj.put("fullname", user.getFullName());
+      jsonObj.put("msv", user.getMsv());
+      jsonObj.put("gender", user.getGender());
+      jsonObj.put("className", user.getClassName());
+      jsonObj.put("email", user.getEmail());
       String response = HttpUtil.sendPut(BASE_URL + "updateByAdmin/" + userId, jsonObj.toString());
       JSONObject responseJson = new JSONObject(response);
     } catch (JSONException e) {

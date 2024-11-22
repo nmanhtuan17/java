@@ -7,6 +7,8 @@ import main.java.com.TLU.studentmanagement.model.User;
 import raven.toast.Notifications;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.util.List;
 
@@ -26,17 +28,22 @@ public class UpdateStudentForm extends JDialog {
 
     setTitle("Cập nhật sinh viên");
     setModal(true);
-    setLayout(new GridLayout(10, 2));
+    setLayout(new GridLayout(10, 2, 10, 10));
     setSize(400, 400);
     setLocationRelativeTo(null);
 
-//        add(new JLabel("Tên:"));
-//        nameField = new JTextField(user.getFullName());
-//        add(nameField);
-//
-//        add(new JLabel("Mã sinh viên:"));
-//        msvField = new JTextField(user.getMsv());
-//        add(msvField);
+    Border padding = new EmptyBorder(10, 10, 10, 10);
+    JPanel panel = (JPanel) getContentPane();
+    panel.setBorder(padding);
+    panel.setLayout(new GridLayout(10, 2, 10, 10));
+
+    add(new JLabel("Tên:"));
+    nameField = new JTextField(user.getFullName());
+    add(nameField);
+
+    add(new JLabel("Mã sinh viên:"));
+    msvField = new JTextField(user.getMsv());
+    add(msvField);
 //
 //        add(new JLabel("Năm:"));
 //        yearField = new JTextField(user.getYear());
@@ -48,17 +55,17 @@ public class UpdateStudentForm extends JDialog {
     gvcnComboBox.setSelectedItem(user.getGvcn());
     add(gvcnComboBox);
 
-//        add(new JLabel("Giới tính:"));
-//        genderField = new JTextField(user.getGender());
-//        add(genderField);
-//
-//        add(new JLabel("Lớp:"));
-//        classField = new JTextField(user.getClassName());
-//        add(classField);
-//
-//        add(new JLabel("Email:"));
-//        emailField = new JTextField(user.getEmail());
-//        add(emailField);
+    add(new JLabel("Giới tính:"));
+    genderField = new JTextField(user.getGender());
+    add(genderField);
+
+    add(new JLabel("Lớp:"));
+    classField = new JTextField(user.getClassName());
+    add(classField);
+
+    add(new JLabel("Email:"));
+    emailField = new JTextField(user.getEmail());
+    add(emailField);
 
     add(new JLabel("Chuyên ngành:"));
     majorComboBox = new JComboBox<>();
@@ -73,6 +80,8 @@ public class UpdateStudentForm extends JDialog {
     JButton cancelButton = new JButton("Hủy");
     cancelButton.addActionListener(e -> dispose());
     add(cancelButton);
+
+    pack();
   }
 
   private void populateTeacherComboBox() {
@@ -90,13 +99,12 @@ public class UpdateStudentForm extends JDialog {
   }
 
   private void updateUser() {
-//        String updatedName = nameField.getText();
-//        String updatedMsv = msvField.getText();
-//        String updatedYear = yearField.getText();
+    String updatedName = nameField.getText();
+    String updatedMsv = msvField.getText();
     String selectedTeacherName = (String) gvcnComboBox.getSelectedItem();
-//        String updatedGender = genderField.getText();
-//        String updatedClassName = classField.getText();
-//        String updatedEmail = emailField.getText();
+    String updatedGender = genderField.getText();
+    String updatedClassName = classField.getText();
+    String updatedEmail = emailField.getText();
     String selectedMajorName = (String) majorComboBox.getSelectedItem();
 
     Teacher selectedTeacher = null;
@@ -116,13 +124,13 @@ public class UpdateStudentForm extends JDialog {
     }
 
     if (selectedTeacher != null && selectedMajor != null) {
-//            user.setFullName(updatedName);
-//            user.setMsv(updatedMsv);
+      user.setFullName(updatedName);
+      user.setMsv(updatedMsv);
 //            user.setYear(updatedYear);
       user.setGvcn(selectedTeacher.getId());
-//            user.setGender(updatedGender);
-//            user.setClassName(updatedClassName);
-//            user.setEmail(updatedEmail);
+      user.setGender(updatedGender);
+      user.setClassName(updatedClassName);
+      user.setEmail(updatedEmail);
       user.setMajorId(selectedMajor.getId());
 
       try {

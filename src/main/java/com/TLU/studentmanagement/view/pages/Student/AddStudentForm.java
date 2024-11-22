@@ -11,6 +11,8 @@ import org.json.JSONObject;
 import raven.toast.Notifications;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -36,7 +38,11 @@ public class AddStudentForm extends JDialog {
   }
 
   private void initUI() {
-    setLayout(new GridLayout(10, 2));
+    setLayout(new GridLayout(10, 2, 10, 10));
+    Border padding = new EmptyBorder(10, 10, 10, 10);
+    JPanel panel = (JPanel) getContentPane();
+    panel.setBorder(padding);
+    panel.setLayout(new GridLayout(10, 2, 10, 10)); // Adding gaps between fields
 
     add(new JLabel("Tên:"));
     nameField = new JTextField();
