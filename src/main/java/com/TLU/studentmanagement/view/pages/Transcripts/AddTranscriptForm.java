@@ -131,7 +131,6 @@ public class AddTranscriptForm extends JDialog {
             break;
 
           default:
-            Notifications.getInstance().show(Notifications.Type.ERROR, "Không thể thêm bảng điểm. Vui lòng thử lại sau.");
             break;
         }
       } else {
@@ -139,7 +138,7 @@ public class AddTranscriptForm extends JDialog {
       }
     } catch (Exception e) {
       e.printStackTrace();
-      Notifications.getInstance().show(Notifications.Type.ERROR, "Không thể thêm bảng điểm. Vui lòng thử lại sau.");
+      Notifications.getInstance().show(Notifications.Type.ERROR, "Không thể thêm bảng điểm. Vui lòng thử lại sau.!!");
     }
   }
 
